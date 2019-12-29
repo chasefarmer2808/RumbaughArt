@@ -11,7 +11,7 @@ parser.add_argument('album_id')
 class Photo(Resource):
     def get(self, photo_id):
         photo = PhotoModel.get(photo_id)
-        serialized_photo = photo_schema.dump(photo, many=True)
+        serialized_photo = photo_schema.dump(photo)
         return Response(response=json.dumps(serialized_photo), status=200, mimetype='application/json')
 
 
