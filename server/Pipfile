@@ -7,6 +7,10 @@ verify_ssl = true
 
 [packages]
 flask-restful = "*"
+flask-sqlalchemy = "*"
+python-dotenv = "*"
+marshmallow = "*"
+pymysql = "*"
 
 [requires]
 python_version = "3.7"

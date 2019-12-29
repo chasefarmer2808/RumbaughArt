@@ -1,14 +1,15 @@
 from flask import Flask
 from flask_restful import Resource, Api
+from config import app_config
+from resources.photo import Photo
+from models import db
 
-app = Flask(__name__)
-api = Api(app)
 
-class HelloWorld(Resource):
-    def get(self):
-        return 'hello'
+def create_app(env_name):
+    app = Flask(__name__)
+    app.config.from_object(app_config[env_name])
+    db.init_app(app)
+    api = Api(app)
+    api.add_resource(Photo, '/api/v1/photo')
 
-api.add_resource(HelloWorld, '/')
-
-if __name__ == '__main__':
-    app.run(debug=True)
+    return app
