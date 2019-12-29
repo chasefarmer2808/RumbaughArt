@@ -8,5 +8,5 @@ services:
                         - "mysql:mysql"
         mysql:
                 image: hypriot/rpi-mysql
-                environment:
-                        - MYSQL_ROOT_PASSWORD=password
+                env_file:
+                        - .env
