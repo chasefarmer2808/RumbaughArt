@@ -24,7 +24,7 @@ class PhotoModel(db.Model):
 
     @staticmethod
     def get_all_by_album_id(album_id):
-        pass
+        return PhotoModel.query.filter_by(album=album_id)
 
 
 class PhotoSchema(Schema):

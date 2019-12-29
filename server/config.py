@@ -14,7 +14,7 @@ class Development(object):
 
 class Production(object):
     DEBUG = False
-    DATABASE_HOSTNAME = os.getenv('DATABASE_HOSTNAME')
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:{}@{}/lychee'.format(os.getenv('MYSQL_ROOT_PASSWORD'), os.getenv('DATABASE_HOSTNAME'))
     MYSQL_ROOT_PASSWORD = os.getenv('MYSQL_ROOT_PASSWORD')
 
 
