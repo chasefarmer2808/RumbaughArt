@@ -1,0 +1,12 @@
+version: "2"
+services:
+        lychee:
+                image: linuxserver/lychee
+                ports:
+                        - 80:80
+                links:
+                        - "mysql:mysql"
+        mysql:
+                image: hypriot/rpi-mysql
+                environment:
+                        - MYSQL_ROOT_PASSWORD=password
