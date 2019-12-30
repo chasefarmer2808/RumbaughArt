@@ -1,0 +1,18 @@
+#navbar-container {
+    background-color: black;
+}
+
+.title-container {
+    padding: 16px;
+}
+
+#site-title {
+    color: white;
+}
+
+@media only screen and (min-width: 650px) {
+    #navbar-container {
+        max-width: 224px;
+        height: 100%;
+    }
+}

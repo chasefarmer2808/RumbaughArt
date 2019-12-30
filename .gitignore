@@ -1,3 +1,4 @@
 .env
 **/.idea
 **/*.pyc
+**/node_modules/
