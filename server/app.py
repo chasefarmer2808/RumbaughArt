@@ -9,6 +9,7 @@ from models import db
 def create_app(env_name):
     app = Flask(__name__)
     app.config.from_object(app_config[env_name])
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.init_app(app)
     api = Api(app)
     api.add_resource(Photo, '/api/v1/photo/<string:id>')
