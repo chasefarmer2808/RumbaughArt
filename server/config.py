@@ -15,7 +15,7 @@ class Development(object):
 class Testing(object):
     DEBUG = True
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:password@localhost/test_db'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://test_user:password@localhost/test_db'
     MYSQL_ROOT_PASSWORD = 'password'
 
 
