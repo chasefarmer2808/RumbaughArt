@@ -4,6 +4,6 @@ python:
 install:
     - pip install -g pipenv
     - pipenv install
-script
+script:
     - docker-compose up
     - pipenv run nosetests
