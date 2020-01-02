@@ -4,6 +4,8 @@ CREATE DATABASE IF NOT EXISTS test_db;
 USE test_db;
 
 DROP TABLE IF EXISTS lychee_photos;
+DROP TABLE IF EXISTS lychee_albums;
+
 CREATE TABLE lychee_photos
 (
     id INTEGER AUTO_INCREMENT,
@@ -11,6 +13,18 @@ CREATE TABLE lychee_photos
     album INTEGER,
     PRIMARY KEY (id)
 );
+
+CREATE TABLE lychee_albums
+(
+    id INTEGER AUTO_INCREMENT,
+    title TEXT,
+    public BINARY,
+    PRIMARY KEY (id)
+);
+
+ALTER TABLE lychee_photos ADD CONSTRAINT fk_album FOREIGN KEY (album) REFERENCES lychee_albums(id);
+
+INSERT INTO lychee_albums (title, public) VALUES ('Paintings', 1);
 
 INSERT INTO lychee_photos (title, album) VALUES ('Flowers', 1);
 
