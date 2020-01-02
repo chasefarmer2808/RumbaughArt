@@ -4,6 +4,11 @@ python:
 install:
 - pip install pipenv
 script:
+- cp .env.example .env
+- sed -ri "s/MYSQL_ROOT_PASSWORD=/MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD/" .env
+- sed -ri "s/DATABASE_HOSTNAME=/DATABASE_HOSTNAME=$DATABASE_HOSTNAME/" .env
+- sed -ri "s/MYSQL_USER=/MYSQL_USER=$MYSQL_USER/" .env
+- sed -ri "s/MYSQL_PASSWORD=/MYSQL_PASSWORD=$MYSQL_PASSWORD/" .env
 - cat .env
 - docker-compose up -d
 - cd server
