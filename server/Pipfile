@@ -12,6 +12,7 @@ python-dotenv = "*"
 marshmallow = "*"
 pymysql = "*"
 cryptography = "*"
+nose = "*"
 
 [requires]
 python_version = "3.7"
