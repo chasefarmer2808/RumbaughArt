@@ -9,10 +9,8 @@ script:
 - sed -ri "s/DATABASE_HOSTNAME=/DATABASE_HOSTNAME=$DATABASE_HOSTNAME/" .env
 - sed -ri "s/MYSQL_USER=/MYSQL_USER=$MYSQL_USER/" .env
 - sed -ri "s/MYSQL_PASSWORD=/MYSQL_PASSWORD=$MYSQL_PASSWORD/" .env
-- cat .env
 - docker-compose up -d
-- cd server
-- pipenv install
-- pipenv run nosetests
+- server/pipenv install
+- server/pipenv run nosetests
 env:
   secure: pHDCjpzbamEyv3YYhW0ynFqbPYq3V+czLR5guDO3sMKpoSDzfFGlQzcasvGWIBaFEFliPpr0xDRrVgCp19YtDfo78VtcfhliYB+juRXtsnjrNka2EAHxoPR6weiTPxK1ho0zDLpS5be5mpmClTLi/gj/TOJtC7dJHM9MVOmmlKurqH+naqg0eVIOqSAiLNCSjebXcXAmysLwUaAf+h1EwQ1Gcts/sEknGTKyn0TQ5zmMk9kUOt/vK1IM8panUKZoJvwcSiE5ek/CCV5m25hrUg/kDYSszIVMI1EygX3L6Gg1w/TWEnCZUx44GHMfygijynJIEZnmlPHdK1+F4LxrhUFOankYFtQJNPjoDFz9yQ8zCOvGcFQv2Bl62GHAHIm/s9TbPtYE4zz0F0gtxrVMX1qe7LO7l+Za2SFGNVPwd9ovvnlKrKDnck5gyjrniTYdvKI4iTRHgRo1wV34S3T7uBSV1sf0cGFGkBgiqvx7qzUaD8jCQRL3HKpfhkUSW5MWofLe03956QdmUAldJk7Gh2aTO5c3/wyF+rM1gfUHjR8GswrNd60UUQd4pZRNR1QdBvPFRQ833O26AT3L5TlwbT6YXLQrS8LeCRHdbkwLTzW7gfzXh27HW/+dVePfQhFV97OJOkZWF7eZT481TzzEtkc3DNrm/1/TLFs5vJ1HdsE=
