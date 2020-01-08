@@ -1,7 +1,7 @@
 version: "2"
 services:
         lychee:
-                image: linuxserver/lychee
+                build: ./lychee
                 ports:
                         - 80:80
                 links:
