@@ -1,3 +1,6 @@
 FROM linuxserver/lychee
-COPY ./backups/backup_0.tar /
-RUN tar -xvf /backup_0.tar
+
+ENV BACKUP_VERS 0.3
+
+COPY ./backups/backup_${BACKUP_VERS}.tar /
+RUN tar -xvf /backup_${BACKUP_VERS}.tar
