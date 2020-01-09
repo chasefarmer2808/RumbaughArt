@@ -26,4 +26,4 @@ class Photos(Resource):
             photos = PhotoModel.get_all()
 
         serialized_photos = photo_schema.dump(photos, many=True)
-        return Response(response=json.dumps(serialized_photos), status=200, mimetype='application/json')
+        return Response(response=json.dumps(serialized_photos.data), status=200, mimetype='application/json')

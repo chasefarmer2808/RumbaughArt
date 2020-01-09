@@ -14,4 +14,4 @@ class Albums(Resource):
     def get(self):
         albums = AlbumModel.get_all_public()
         serialized_albums = album_schema.dump(albums, many=True)
-        return Response(response=json.dumps(serialized_albums), status=200, mimetype='application/json')
+        return Response(response=json.dumps(serialized_albums.data), status=200, mimetype='application/json')

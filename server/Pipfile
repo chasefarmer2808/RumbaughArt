@@ -13,6 +13,7 @@ marshmallow = "*"
 pymysql = "*"
 cryptography = "*"
 nose = "*"
+flask-cors = "*"
 
 [requires]
 python_version = "3.7"
