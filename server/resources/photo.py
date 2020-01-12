@@ -12,7 +12,7 @@ class Photo(Resource):
     def get(self, photo_id):
         photo = PhotoModel.get(photo_id)
         serialized_photo = photo_schema.dump(photo)
-        return Response(response=json.dumps(serialized_photo), status=200, mimetype='application/json')
+        return Response(response=json.dumps(serialized_photo.data), status=200, mimetype='application/json')
 
 
 class Photos(Resource):
