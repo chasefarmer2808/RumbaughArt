@@ -1,3 +1,5 @@
-<p>
-  gallery works!
-</p>
+<div id="gallery-container">
+  <div class="thumbnail" *ngFor="let photo of photos">
+    <img src="http://localhost/uploads/thumb/{{photo.thumbUrl}}">
+  </div>
+</div>

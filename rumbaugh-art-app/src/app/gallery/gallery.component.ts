@@ -12,19 +12,18 @@ import { Photo } from '../services/lychee/photo';
 export class GalleryComponent implements OnInit {
 
   albumId: string;
+  photos: Photo[];
 
   constructor(private route: ActivatedRoute, private lycheeService: LycheeService) { }
 
   ngOnInit() {
     this.route.paramMap.pipe(
       flatMap(params => {
-        console.log(params);
-
         this.albumId = params['params']['id'];
         return this.lycheeService.getPhotosByAlbum(this.albumId);
       })
     ).subscribe((photos: Photo[]) => {
-      console.log(photos)
+      this.photos = photos;
     });
   }
 }
