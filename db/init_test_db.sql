@@ -11,6 +11,8 @@ CREATE TABLE lychee_photos
     id INTEGER AUTO_INCREMENT,
     title TEXT,
     album INTEGER,
+    url TEXT,
+    thumbUrl TEXT,
     PRIMARY KEY (id)
 );
 
@@ -26,6 +28,6 @@ ALTER TABLE lychee_photos ADD CONSTRAINT fk_album FOREIGN KEY (album) REFERENCES
 
 INSERT INTO lychee_albums (title, public) VALUES ('Paintings', 1);
 
-INSERT INTO lychee_photos (title, album) VALUES ('Flowers', 1);
+INSERT INTO lychee_photos (title, album, url, thumbUrl) VALUES ('Flowers', 1, '1', '1');
 
 GRANT ALL ON test_db.* TO 'test_user'@'%';
