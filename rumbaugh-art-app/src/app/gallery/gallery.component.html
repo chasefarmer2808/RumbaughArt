@@ -1,5 +1,5 @@
 <div id="gallery-container">
-  <div class="thumbnail" *ngFor="let photo of photos">
-    <img src="http://localhost/uploads/small/{{photo.url}}">
+  <div class="thumbnail" *ngFor="let photo of photos; let i = index">
+    <img src="http://localhost/uploads/small/{{photo.url}}" (load)="refreshGrid($event, i)">
   </div>
 </div>

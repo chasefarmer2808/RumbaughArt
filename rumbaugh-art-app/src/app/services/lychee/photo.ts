@@ -4,4 +4,6 @@ export class Photo {
     album: string;
     url: string;
     thumbUrl: string;
+    width: number;
+    height: number;
 }

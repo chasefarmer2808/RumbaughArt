@@ -10,6 +10,8 @@ class PhotoModel(db.Model):
     album = db.Column(db.Integer, nullable=False)
     url = db.Column(db.String(100), nullable=False)
     thumbUrl = db.Column(db.String(37), nullable=False)
+    width = db.Column(db.Integer, nullable=False)
+    height = db.Column(db.Integer, nullable=False)
 
     def __init__(self, data):
         self.id = data.get('id')
@@ -17,6 +19,8 @@ class PhotoModel(db.Model):
         self.album = data.get('album')
         self.url = data.get('url')
         self.thumbUrl = data.get('thumbUrl')
+        self.width = data.get('width')
+        self.height = data.get('height')
 
     @staticmethod
     def get_all():
@@ -37,3 +41,5 @@ class PhotoSchema(Schema):
     album = fields.Int(required=True)
     url = fields.Str(required=True)
     thumbUrl = fields.Str(required=True)
+    width = fields.Int(required=True)
+    height = fields.Int(required=True)
