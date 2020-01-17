@@ -13,8 +13,8 @@ export class GalleryComponent implements OnInit {
 
   albumId: string;
   photos: Photo[];
-  avgPhotoWidth: number = 0;
-  avgPhotoHeight: number = 0;
+  // Make sure this thresh matches the minmax set in the css grid.
+  readonly photoThreshPx: number = 300;
 
   constructor(private route: ActivatedRoute, 
     private lycheeService: LycheeService,
@@ -29,30 +29,17 @@ export class GalleryComponent implements OnInit {
     ).subscribe((photos: Photo[]) => {
       console.log(photos)
       this.photos = photos;
-      this.setAverages();
     });
-  }
-
-  setAverages() {
-    this.avgPhotoWidth = 0;
-    this.avgPhotoHeight = 0;
-
-    this.photos.forEach((photo: Photo) => {
-      this.avgPhotoHeight += photo.height;
-      this.avgPhotoWidth += photo.width;
-    });
-
-    this.avgPhotoHeight /= this.photos.length;
-    this.avgPhotoWidth /= this.photos.length;
   }
 
   refreshGrid(event, photoIndex:number) {
     let imgParentElement = event.target.parentElement;
     let photo:Photo = this.photos[photoIndex];
 
-    if (photo.width > this.avgPhotoWidth) {
+    // Make photo wider or taller in the grid based on its actual dimentions.
+    if (photo.width > this.photoThreshPx) {
       this.renderer.setStyle(imgParentElement, 'grid-column', 'span 2');
-    } else if (photo.height > this.avgPhotoHeight) {
+    } else if (photo.height > this.photoThreshPx) {
       this.renderer.setStyle(imgParentElement, 'grid-row', 'span 2');
     }
   }
