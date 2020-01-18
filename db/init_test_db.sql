@@ -15,6 +15,7 @@ CREATE TABLE lychee_photos
     thumbUrl TEXT,
     width INTEGER,
     height INTEGER,
+    star BINARY,
     PRIMARY KEY (id)
 );
 
@@ -30,6 +31,8 @@ ALTER TABLE lychee_photos ADD CONSTRAINT fk_album FOREIGN KEY (album) REFERENCES
 
 INSERT INTO lychee_albums (title, public) VALUES ('Paintings', 1);
 
-INSERT INTO lychee_photos (title, album, url, thumbUrl, width, height) VALUES ('Flowers', 1, '1', '1', 10, 10);
+INSERT INTO lychee_photos (title, album, url, thumbUrl, width, height, star) VALUES ('Flowers', 1, '1', '1', 10, 10, 0);
+INSERT INTO lychee_photos (title, album, url, thumbUrl, width, height, star) VALUES ('Birds', 1, '1', '1', 10, 10, 1);
+
 
 GRANT ALL ON test_db.* TO 'test_user'@'%';
