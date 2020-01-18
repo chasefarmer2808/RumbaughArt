@@ -1,7 +1,11 @@
+#router-container {
+    background-color: #afc1c2;
+}
+
 @media only screen and (min-width: 650px) {
     #site-container {
         display: grid;
-        grid-template-columns: 200px 4fr;
+        grid-template-columns: 220px 4fr;
         grid-template-rows: 1fr;
         height: 100vh;
     }
