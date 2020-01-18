@@ -3,16 +3,18 @@ import { ActivatedRoute } from '@angular/router';
 import { LycheeService } from '../services/lychee/lychee.service';
 import { flatMap } from 'rxjs/operators';
 import { Photo } from '../services/lychee/photo';
+import { imgListFade } from '../animations/imgListFade';
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.css']
+  styleUrls: ['./gallery.component.css'],
+  animations: [imgListFade]
 })
 export class GalleryComponent implements OnInit {
 
   albumId: string;
-  photos: Photo[];
+  photos: Photo[] = [];
   // Make sure this thresh matches the minmax set in the css grid.
   readonly photoThreshPx: number = 300;
 

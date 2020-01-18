@@ -4,6 +4,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { GalleryComponent } from './gallery.component';
 import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('GalleryComponent', () => {
   let component: GalleryComponent;
@@ -14,7 +15,8 @@ describe('GalleryComponent', () => {
       declarations: [ GalleryComponent ],
       imports: [ 
         HttpClientTestingModule,
-        RouterTestingModule
+        RouterTestingModule,
+        BrowserAnimationsModule
       ]
     })
     .compileComponents();

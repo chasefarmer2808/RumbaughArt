@@ -1,4 +1,4 @@
-<div id="gallery-container">
+<div id="gallery-container" [@imgListFade]="photos.length">
   <div class="thumbnail" *ngFor="let photo of photos; let i = index">
     <img src="http://localhost/uploads/small/{{photo.url}}" (load)="refreshGrid($event, i)">
   </div>
