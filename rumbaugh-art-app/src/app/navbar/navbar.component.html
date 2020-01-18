@@ -3,6 +3,9 @@
     <h3 id="site-title">Art by Suzanne Rumbaugh</h3>
   </div>
   <div id="nav-links-container">
+    <div id="nav-link">
+      <a [routerLink]="['/']">Home</a>
+    </div>
     <div id="nav-link" *ngFor="let gallery of galleries">
       <a [routerLink]="['/gallery', gallery.id]">{{gallery.title}}</a>
     </div>

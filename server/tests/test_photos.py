@@ -24,5 +24,13 @@ class PhotosTestCase(unittest.TestCase):
         for photo in res.json:
             self.assertEqual(photo['album'], 1)
 
+    def test_should_get_all_stared_photos(self):
+        params = {'star': '1'}
+        res = self.client.get('/api/v1/photo/', query_string=params)
+        self.assertEqual(res.status_code, 200)
+
+        for photo in res.json:
+            self.assertEqual(photo['star'], 1)
+
     def tearDown(self):
         db.session.remove()

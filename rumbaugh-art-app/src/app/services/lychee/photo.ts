@@ -6,4 +6,5 @@ export class Photo {
     thumbUrl: string;
     width: number;
     height: number;
+    star: number;
 }
