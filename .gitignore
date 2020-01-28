@@ -2,3 +2,5 @@
 **/.idea
 **/*.pyc
 **/node_modules/
+/server/static/
+/server/templates/

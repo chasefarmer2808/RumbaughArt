@@ -1,5 +1,12 @@
 # Rumbaugh Art
 
+## Environment setup
+1. Install the latest version of Node and Angular.
+2. Run `npm install` in the Angular app directory.
+3. Install Python 3.7.
+4. Install pip and pipenv.
+5. Run `pipenv install` in the server directory.
+
 ## Backup Instructions
 ### First, backup the database:
 1. Exec into the db docker container by running `docker exec -it container_name /bin/bash`.
@@ -14,3 +21,7 @@
 3. Update the `BACKUP_VERS` environment variable in the Dockerfile.
 
 ### Finally, update the version number in the .env file and rebuild the lychee and mysql docker images to test the backup.
+
+## Build and deploy
+1. Build the Angular app with `ng build`.  This should create a `dist` folder in the root of the Angular app directory.
+2. Run `gulp copyBuild` to copy the static app files to the server's directory.
