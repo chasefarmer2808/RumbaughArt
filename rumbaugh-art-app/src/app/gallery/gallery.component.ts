@@ -4,6 +4,7 @@ import { LycheeService } from '../services/lychee/lychee.service';
 import { flatMap } from 'rxjs/operators';
 import { Photo } from '../services/lychee/photo';
 import { imgListFade } from '../animations/imgListFade';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-gallery',
@@ -15,6 +16,7 @@ export class GalleryComponent implements OnInit {
 
   albumId: string;
   photos: Photo[] = [];
+  photoServerUrl: string = environment.photoServerUrl;
   // Make sure this thresh matches the minmax set in the css grid.
   readonly photoThreshPx: number = 300;
 

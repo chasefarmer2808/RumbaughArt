@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LycheeService } from '../services/lychee/lychee.service';
 import { Photo } from '../services/lychee/photo';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,7 @@ import { Photo } from '../services/lychee/photo';
 export class HomeComponent implements OnInit {
 
   staredPhotos: Photo[] = [];
+  photoServerUrl: string = environment.photoServerUrl;
 
   constructor(private lycheeService: LycheeService) { }
 
