@@ -4,6 +4,9 @@
 
 export const environment = {
   production: false,
+  serverUrl: 'localhost',
+  serverPort: '5000',
+  photoServerPort: '8080',
   photoServerUrl: 'localhost:8080'
 };
 

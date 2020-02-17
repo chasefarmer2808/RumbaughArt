@@ -3,13 +3,16 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Album } from './album';
 import { Photo } from './photo';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LycheeService {
 
-  private baseUrl = 'http://localhost:5000/api/v1'
+  readonly serverHostName: string = environment.serverUrl;
+  readonly serverPort: string = environment.serverPort;
+  private readonly baseUrl: string = `http://${this.serverHostName}:${this.serverPort}/api/v1`
 
   constructor(private httpClient: HttpClient) { }
 

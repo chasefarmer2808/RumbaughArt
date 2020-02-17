@@ -23,7 +23,7 @@
 ### Finally, update the version number in the .env file and rebuild the lychee and mysql docker images to test the backup.
 
 ## Build and deploy
-1. Build the Angular app with `ng build`.  This should create a `dist` folder in the root of the Angular app directory.
+1. Build the Angular app with `ng build --prod --build-optimizer=false`.  This should create a `dist` folder in the root of the Angular app directory.
 2. Run `gulp copyBuild` to copy the static app files to the server's directory.
 3. Build the Flask web server with `docker-compose build api`.
 4. Run the entire web app with `docker-compose up`.
