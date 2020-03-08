@@ -43,7 +43,9 @@ export class GalleryComponent implements OnInit {
     // Make photo wider or taller in the grid based on its actual dimentions.
     if (photo.width > this.photoThreshPx) {
       this.renderer.setStyle(imgParentElement, 'grid-column', 'span 2');
-    } else if (photo.height > this.photoThreshPx) {
+    } 
+    
+    if (photo.height > this.photoThreshPx) {
       this.renderer.setStyle(imgParentElement, 'grid-row', 'span 2');
     }
   }

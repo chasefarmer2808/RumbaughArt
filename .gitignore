@@ -4,3 +4,6 @@
 **/node_modules/
 /server/static/
 /server/templates/
+*.pem
+*.ppk
+**/*.tar
