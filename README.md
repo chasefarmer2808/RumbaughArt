@@ -2,10 +2,12 @@
 
 ## Environment setup
 1. Install the latest version of Node and Angular.
-2. Run `npm install` in the Angular app directory.
-3. Install Python 3.7.
-4. Install pip and pipenv.
-5. Run `pipenv install` in the server directory.
+2. Install the Angular CLI with `npm install -g @angular/cli`.  This will be used for frontend development and building.
+2. Install Gulp with `npm install -g gulp`.  This will be used to execute helper scripts for deployment.
+3. Run `npm install` in the Angular app directory.
+4. Install Python 3.7.
+5. Install pip and pipenv.
+6. Run `pipenv install` in the server directory.
 
 ## Backup Instructions
 ### First, backup the database:
