@@ -8,6 +8,8 @@
 4. Install Python 3.7.
 5. Install pip and pipenv.
 6. Run `pipenv install` in the server directory.
+7. Create a .env file using the .env.example as a template.  Use `cp .env.example .env`.
+8. Fill in the environment variables within .env appropriatly.
 
 ## Backup Instructions
 ### First, backup the database:
