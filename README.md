@@ -17,7 +17,8 @@
 2. Dump the state of the datebase with `mysqldump -u username -p lychee > backup.sql`.
 3. Back on the host, run the `backup_db.bat` file.
 4. You should see a `backup.sql` file in the backups folder.  Append the desired version number to the filename.
-5. Update the `BACKUP_VERS` environment variable in the Dockerfile.
+5. Copy the backup file out to the host filesystem with `docker cp container id:/src_path dest_path`.
+6. Update the `BACKUP_VERS` environment variable in the Dockerfile and the .env file.
 
 ### Next, backup Lychee:
 1. On the host, run the `backup_lychee.bat` file.
