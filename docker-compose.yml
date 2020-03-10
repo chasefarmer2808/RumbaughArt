@@ -1,9 +1,13 @@
 version: "3"
 services:
+        web:
+                build: ./rumbaugh-art-app
+                ports:
+                        - 80:80
         api:
                 build: ./server
                 ports:
-                        - 80:80
+                        - 8081:80
                 links:
                         - "lychee:lychee"
                 env_file:
