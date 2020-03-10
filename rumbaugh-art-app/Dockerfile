@@ -4,7 +4,7 @@ COPY package*.json /app/
 RUN npm install
 COPY . /app
 ARG configuration
-RUN npm run build -- --${configuration}
+RUN npm run build -- --build-optimizer=false --${configuration}
 
 FROM nginx:1.15
 COPY --from=build-stage /app/dist/rumbaugh-art-app/ /usr/share/nginx/html
