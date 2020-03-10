@@ -10,6 +10,7 @@ import { Album } from '../services/lychee/album';
 export class NavbarComponent implements OnInit {
 
   galleries: Album[] = [];
+  navActive: boolean = false;
 
   constructor(private lycheeService: LycheeService) { }
 
