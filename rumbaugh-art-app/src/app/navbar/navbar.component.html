@@ -1,13 +1,13 @@
 <div id="navbar-container">
   <div class="title-container">
     <h4 id="site-title">Art by Suzanne Rumbaugh</h4>
-    <button id="nav-menu-button" class="hamburger hamburger--slider" type="button" (click)="navActive = !navActive" [ngClass]="{'is-active': navActive}">
+    <button id="nav-menu-button" class="hamburger hamburger--slider" type="button" (click)="toggleNav()" [ngClass]="{'is-active': navActive}">
       <span class="hamburger-box">
         <span class="hamburger-inner"></span>
       </span>
     </button>
   </div>
-  <div id="nav-links-container">
+  <div id="nav-links-container" [ngStyle]="{'display': navActive ? 'block' : 'none'}">
     <div id="nav-link">
       <a [routerLink]="['/']">Home</a>
     </div>

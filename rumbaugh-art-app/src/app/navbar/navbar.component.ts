@@ -20,4 +20,8 @@ export class NavbarComponent implements OnInit {
     });
   }
 
+  toggleNav() {
+    this.navActive = !this.navActive;
+  }
+
 }

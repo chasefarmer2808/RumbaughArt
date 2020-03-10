@@ -3,7 +3,7 @@
 }
 
 .title-container {
-    padding: 16px;
+    padding: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -14,9 +14,14 @@
     font-family: 'Raleway', sans-serif;
 }
 
+#nav-links-container {
+    display: none;
+    text-align: center;
+}
+
 #nav-link {
     color: white;
-    margin: 8px;
+    padding: 8px;
 }
 
 #nav-link a {
