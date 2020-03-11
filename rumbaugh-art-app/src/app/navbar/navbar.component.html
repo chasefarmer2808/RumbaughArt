@@ -15,7 +15,7 @@
       <a [routerLink]="['/gallery', gallery.id]">{{gallery.title}}</a>
     </div>
   </div>
-  <div id="nav-links-slider" [ngStyle]="{'display': navActive ? 'flex' : 'none'}">
+  <div id="nav-links-slider" [@slideDown]="navActive ? 'down' : 'up'">
     <div id="nav-link">
       <a [routerLink]="['/']">Home</a>
     </div>
