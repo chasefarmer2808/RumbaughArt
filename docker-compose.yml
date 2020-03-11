@@ -1,7 +1,7 @@
 version: "3"
 services:
         web:
-                build: ./rumbaugh-art-app
+                image: chasefarmer94/rumbaugh-art-app:prod
                 ports:
                         - 80:80
         api:
