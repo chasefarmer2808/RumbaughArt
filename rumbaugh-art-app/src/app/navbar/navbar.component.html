@@ -7,7 +7,15 @@
       </span>
     </button>
   </div>
-  <div id="nav-links-container" [ngStyle]="{'display': navActive ? 'block' : 'none'}">
+  <div id="nav-links-container">
+    <div id="nav-link">
+      <a [routerLink]="['/']">Home</a>
+    </div>
+    <div id="nav-link" *ngFor="let gallery of galleries">
+      <a [routerLink]="['/gallery', gallery.id]">{{gallery.title}}</a>
+    </div>
+  </div>
+  <div id="nav-links-slider" [ngStyle]="{'display': navActive ? 'flex' : 'none'}">
     <div id="nav-link">
       <a [routerLink]="['/']">Home</a>
     </div>
