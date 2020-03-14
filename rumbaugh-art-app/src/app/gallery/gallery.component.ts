@@ -31,7 +31,6 @@ export class GalleryComponent implements OnInit {
         return this.lycheeService.getPhotosByAlbum(this.albumId);
       })
     ).subscribe((photos: Photo[]) => {
-      console.log(photos)
       this.photos = photos;
     });
   }

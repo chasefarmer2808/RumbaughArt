@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.lycheeService.getStaredPhotos().subscribe((photos: Photo[]) => {
-      console.log(photos)
       this.staredPhotos = photos;
     })
   }

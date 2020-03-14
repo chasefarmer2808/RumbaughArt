@@ -14,7 +14,7 @@ function copyBuildHTML() {
 }
 
 function copyFavicon() {
-    return src('dist/rumbaugh-art-app/favicon.ico')
+    return src('dist/rumbaugh-art-app/favicon.png')
         .pipe(dest('../server/static'));
 }
 
