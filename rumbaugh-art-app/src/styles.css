@@ -99,3 +99,5 @@ body {
           opacity: 0; }
         .hamburger--slider-r.is-active .hamburger-inner::after {
           transform: translate3d(0, -20px, 0) rotate(90deg); }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

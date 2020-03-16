@@ -5,6 +5,8 @@ import { flatMap } from 'rxjs/operators';
 import { Photo } from '../services/lychee/photo';
 import { imgListFade } from '../animations/imgListFade';
 import { environment } from 'src/environments/environment';
+import { MatDialog } from '@angular/material/dialog';
+import { PhotoDialogComponent } from '../photo-dialog/photo-dialog.component';
 
 @Component({
   selector: 'app-gallery',
@@ -22,7 +24,8 @@ export class GalleryComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, 
     private lycheeService: LycheeService,
-    private renderer: Renderer2) { }
+    private renderer: Renderer2,
+    public photoDialog: MatDialog) { }
 
   ngOnInit() {
     this.route.paramMap.pipe(
@@ -47,5 +50,9 @@ export class GalleryComponent implements OnInit {
     if (photo.height > this.photoThreshPx) {
       this.renderer.setStyle(imgParentElement, 'grid-row', 'span 2');
     }
+  }
+
+  openPhoto(photoUrl: string) {
+    this.photoDialog.open(PhotoDialogComponent, { data: { photoUrl }});
   }
 }

@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GalleryComponent } from './gallery/gallery.component';
 import { AboutComponent } from './about/about.component';
+import { PhotoDialogComponent } from './photo-dialog/photo-dialog.component';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -17,14 +19,16 @@ import { AboutComponent } from './about/about.component';
     NavbarComponent,
     HomeComponent,
     GalleryComponent,
-    AboutComponent
+    AboutComponent,
+    PhotoDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NgbCarouselModule
+    NgbCarouselModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
