@@ -6,7 +6,7 @@ import { Photo } from '../services/lychee/photo';
 import { imgListFade } from '../animations/imgListFade';
 import { environment } from 'src/environments/environment';
 import { MatDialog } from '@angular/material/dialog';
-import { PhotoDialogComponent } from '../photo-dialog/photo-dialog.component';
+import { PhotoDialogComponent, PhotoDialogData } from '../photo-dialog/photo-dialog.component';
 
 @Component({
   selector: 'app-gallery',
@@ -18,6 +18,7 @@ export class GalleryComponent implements OnInit {
 
   albumId: string;
   photos: Photo[] = [];
+  photoUrls: string[] = [];
   photoServerUrl: string = environment.photoServerUrl;
   // Make sure this thresh matches the minmax set in the css grid.
   readonly photoThreshPx: number = 300;
@@ -35,6 +36,7 @@ export class GalleryComponent implements OnInit {
       })
     ).subscribe((photos: Photo[]) => {
       this.photos = photos;
+      this.photos.forEach(photo => this.photoUrls.push(photo.url));
     });
   }
 
@@ -52,7 +54,12 @@ export class GalleryComponent implements OnInit {
     }
   }
 
-  openPhoto(photoUrl: string) {
-    this.photoDialog.open(PhotoDialogComponent, { data: { photoUrl }});
+  openPhotoDialog(selectedIndex: number) {
+    let dialogData: PhotoDialogData = {
+      photoUrls: this.photoUrls,
+      selectedIndex
+    };
+
+    this.photoDialog.open(PhotoDialogComponent, { data: dialogData });
   }
 }

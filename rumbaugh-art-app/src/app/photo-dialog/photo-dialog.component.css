@@ -1,9 +1,25 @@
 #photo-dialog-container {
     max-height: 95vh;
+    display: flex;
+    flex-direction: row;
+}
+
+#photo-dialog-container button {
+    align-self: center;
+}
+
+#photo-dialog-container button mat-icon {
+    font-size: 80px;
+    width: 80px;
+    height: 80px;
 }
 
 #photo-dialog-container img {
     object-fit: contain;
     width: 100%;
     height: 100%;
+}
+
+@media only screen and (min-width: 650px) {
+    
 }

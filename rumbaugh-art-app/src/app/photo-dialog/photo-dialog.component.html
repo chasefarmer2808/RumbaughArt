@@ -1,3 +1,5 @@
 <div mat-dialog-content id="photo-dialog-container">
-    <img src="http://{{photoServerUrl}}/uploads/medium/{{data.photoUrl}}">
+    <button mat-icon-button><mat-icon>keyboard_arrow_left</mat-icon></button>
+    <img src="http://{{photoServerUrl}}/uploads/medium/{{data.photoUrls[data.selectedIndex]}}">
+    <button mat-icon-button><mat-icon>keyboard_arrow_right</mat-icon></button>
 </div>
