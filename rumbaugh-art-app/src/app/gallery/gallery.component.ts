@@ -36,7 +36,6 @@ export class GalleryComponent implements OnInit {
       })
     ).subscribe((photos: Photo[]) => {
       this.photos = photos;
-      this.photos.forEach(photo => this.photoUrls.push(photo.url));
     });
   }
 
@@ -55,6 +54,10 @@ export class GalleryComponent implements OnInit {
   }
 
   openPhotoDialog(selectedIndex: number) {
+    // Reset and collect all urls.
+    this.photoUrls = [];
+    this.photos.forEach(photo => this.photoUrls.push(photo.url));
+
     let dialogData: PhotoDialogData = {
       photoUrls: this.photoUrls,
       selectedIndex
