@@ -25,7 +25,7 @@
 
 
 
-@media only screen and (min-width: 650px) {
+@media only screen and (min-width: 1024px) {
     #about-container {
         width: auto;
     }
