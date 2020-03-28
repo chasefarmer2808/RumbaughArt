@@ -7,4 +7,5 @@ ARG configuration
 RUN npm run build -- --build-optimizer=false --${configuration}
 
 FROM nginx:1.15
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build-stage /app/dist/rumbaugh-art-app/ /usr/share/nginx/html
