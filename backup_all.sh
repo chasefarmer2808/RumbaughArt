@@ -1,3 +1,6 @@
+#!/bin/bash
+cd "$(dirname "$0")"
+
 set -o allexport; source .env; set +o allexport
 
 docker exec rumbaughart_mysql_1 mysqldump -u $MYSQL_ROOT_USER --password=$MYSQL_ROOT_PASSWORD lychee > db/backups/backup.sql
