@@ -7,3 +7,4 @@
 *.pem
 *.ppk
 **/*.tar
+db/backups/backup.sql
