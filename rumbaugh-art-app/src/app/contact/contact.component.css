@@ -1,0 +1,42 @@
+.center-card {
+    text-align: center;
+}
+
+.compact-card {
+    max-width: 350px;
+}
+
+#contact-container-inner mat-card {
+    /* background-color: #f7f7f1; */
+    background-image: linear-gradient(#f7f7f1, #afc1c2);
+}
+
+#contact-info p {
+    margin: 0;
+}
+
+@media only screen and (min-width: 1024px) {
+    #contact-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    #contact-container-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr auto;
+        justify-items: center;
+        row-gap: 16px;
+        margin: 8px;
+    }
+
+    #pricing-info-container {
+        grid-column: 1 / span 2;
+    }
+
+    .info-content {
+        font-size: 18px;
+    }
+}

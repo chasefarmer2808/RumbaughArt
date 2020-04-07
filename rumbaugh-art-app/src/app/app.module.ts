@@ -12,6 +12,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { AboutComponent } from './about/about.component';
 import { PhotoDialogComponent } from './photo-dialog/photo-dialog.component';
 import { MaterialModule } from './material/material.module';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MaterialModule } from './material/material.module';
     HomeComponent,
     GalleryComponent,
     AboutComponent,
-    PhotoDialogComponent
+    PhotoDialogComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
