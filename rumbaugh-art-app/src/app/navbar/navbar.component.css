@@ -7,6 +7,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 22px;
+}
+
+#artist-name {
     font-size: 26px;
 }
 
@@ -53,6 +57,10 @@
     }
 
     .title-container {
+        font-size: 26px;
+    }
+
+    #artist-name {
         font-size: 32px;
     }
 
