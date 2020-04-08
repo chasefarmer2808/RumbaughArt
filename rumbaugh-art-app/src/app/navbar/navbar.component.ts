@@ -28,6 +28,8 @@ export class NavbarComponent implements OnInit {
 
   galleries: Album[] = [];
   navActive: boolean = false;
+  galleriesActive: boolean = false;
+  currentUrl: string = '';
 
   constructor(private lycheeService: LycheeService, private router: Router) { }
 
@@ -36,8 +38,9 @@ export class NavbarComponent implements OnInit {
       this.galleries = albums;
     });
 
-    this.router.events.subscribe(event => {
+    this.router.events.subscribe((event: RouterEvent) => {
       if (event instanceof NavigationStart) {
+        this.currentUrl = event.url.slice(1);
         this.navActive = false;
       }
     })
@@ -45,6 +48,10 @@ export class NavbarComponent implements OnInit {
 
   toggleNav() {
     this.navActive = !this.navActive;
+  }
+
+  isOnCurrentRoute(routeUrl: string): boolean {
+    return this.currentUrl == routeUrl;
   }
 
 }
