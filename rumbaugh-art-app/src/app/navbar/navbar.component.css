@@ -112,6 +112,10 @@
         display: none !important;
     }
 
+    #gallery-links-container {
+        z-index: 1000;
+    }
+
     #gallery-links {
         position: absolute;
         text-align: left;
