@@ -24,14 +24,14 @@
   </div>
   <!-- Mobile -->
   <div id="nav-links-slider" [@slideDown]="navActive ? 'down' : 'up'">
-    <div id="nav-link">
-      <a [routerLink]="['/']">Home</a>
+    <a class="nav-link" [ngClass]="{'nav-link-active': currentUrl == 'home'}" [routerLink]="['/home']">Home</a>
+    <div id="gallery-links-container" [ngClass]="{'nav-link-active': galleriesActive || currentUrl.includes('gallery')}" (click)="toggleGalleries()">
+      <span class="nav-link">Galleries</span>
+      <div id="gallery-links" [@slideDown]="galleriesActive ? 'down' : 'up'">
+        <a *ngFor="let gallery of galleries" id="gallery-link" [routerLink]="['/gallery', gallery.id]">{{gallery.title}}</a>
+      </div>
     </div>
-    <div id="nav-link" *ngFor="let gallery of galleries">
-      <a [routerLink]="['/gallery', gallery.id]">{{gallery.title}}</a>
-    </div>
-    <div id="nav-link">
-      <a [routerLink]="['/about']">About</a>
-    </div>
+    <a class="nav-link" [ngClass]="{'nav-link-active': currentUrl == 'about'}" [routerLink]="['/about']">About</a>
+    <a class="nav-link" [ngClass]="{'nav-link-active': currentUrl == 'contact'}" [routerLink]="['/contact']">Pricing/Contact</a>
   </div>
 </div>

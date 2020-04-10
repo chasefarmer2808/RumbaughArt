@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationStart, Router } from '@angular/router';
+import { NavigationStart, Router, RouterEvent } from '@angular/router';
 import { LycheeService } from '../services/lychee/lychee.service';
 import { Album } from '../services/lychee/album';
 import { state, trigger, style, transition, animate } from '@angular/animations';
@@ -42,12 +42,17 @@ export class NavbarComponent implements OnInit {
       if (event instanceof NavigationStart) {
         this.currentUrl = event.url.slice(1);
         this.navActive = false;
+        // this.galleriesActive = false;
       }
     })
   }
 
   toggleNav() {
     this.navActive = !this.navActive;
+  }
+
+  toggleGalleries() {
+    this.galleriesActive = !this.galleriesActive;
   }
 
   isOnCurrentRoute(routeUrl: string): boolean {
