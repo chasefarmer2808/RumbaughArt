@@ -2,6 +2,7 @@ version: "3"
 services:
         web:
                 image: chasefarmer94/rumbaugh-art-app:prod
+                restart: unless-stopped
         api:
                 build: ./server
                 ports:
@@ -10,12 +11,14 @@ services:
                         - "lychee:lychee"
                 env_file:
                         - .env
+                restart: unless-stopped
         lychee:
                 build: ./lychee
                 ports:
                         - 8080:80
                 links:
                         - "mysql:mysql"
+                restart: unless-stopped
         mysql:
                 build: ./db
                 command: --default-authentication-plugin=mysql_native_password
@@ -23,6 +26,7 @@ services:
                         - 3306:3306
                 env_file:
                         - .env
+                restart: unless-stopped
         reverse_proxy:
                 image: nginx:mainline-alpine
                 ports:
@@ -36,6 +40,7 @@ services:
                         - ./dhparam:/etc/ssl/certs
                 depends_on:
                         - web
+                restart: unless-stopped
         certbot:
                 image: certbot/certbot
                 volumes:
