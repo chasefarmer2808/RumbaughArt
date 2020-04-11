@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationStart, Router } from '@angular/router';
+import { NavigationStart, Router, RouterEvent } from '@angular/router';
 import { LycheeService } from '../services/lychee/lychee.service';
 import { Album } from '../services/lychee/album';
 import { state, trigger, style, transition, animate } from '@angular/animations';
@@ -28,6 +28,8 @@ export class NavbarComponent implements OnInit {
 
   galleries: Album[] = [];
   navActive: boolean = false;
+  galleriesActive: boolean = false;
+  currentUrl: string = '';
 
   constructor(private lycheeService: LycheeService, private router: Router) { }
 
@@ -36,15 +38,25 @@ export class NavbarComponent implements OnInit {
       this.galleries = albums;
     });
 
-    this.router.events.subscribe(event => {
+    this.router.events.subscribe((event: RouterEvent) => {
       if (event instanceof NavigationStart) {
+        this.currentUrl = event.url.slice(1);
         this.navActive = false;
+        // this.galleriesActive = false;
       }
     })
   }
 
   toggleNav() {
     this.navActive = !this.navActive;
+  }
+
+  toggleGalleries() {
+    this.galleriesActive = !this.galleriesActive;
+  }
+
+  isOnCurrentRoute(routeUrl: string): boolean {
+    return this.currentUrl == routeUrl;
   }
 
 }
