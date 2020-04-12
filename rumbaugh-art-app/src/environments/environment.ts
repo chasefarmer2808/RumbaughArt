@@ -6,8 +6,8 @@ export const environment = {
   production: false,
   serverUrl: 'localhost',
   serverPort: '8081',
-  photoServerPort: '8080',
-  photoServerUrl: 'localhost:8080'
+  serverDirectory: '',
+  photoServerUrl: 'http://localhost:8080'
 };
 
 /*

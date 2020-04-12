@@ -12,9 +12,18 @@ export class LycheeService {
 
   readonly serverHostName: string = environment.serverUrl;
   readonly serverPort: string = environment.serverPort;
-  private readonly baseUrl: string = `http://${this.serverHostName}:${this.serverPort}/api/v1`
+  readonly serverDirectory: string = environment.serverDirectory;
 
-  constructor(private httpClient: HttpClient) { }
+  private readonly baseUrl: string;
+
+  constructor(private httpClient: HttpClient) {
+    if (environment.production) {
+      this.baseUrl = `https://${this.serverHostName}/api/v1`;
+    }
+    else {
+      this.baseUrl = `http://${this.serverHostName}:${this.serverPort}/api/v1`;
+    }
+  }
 
   getPublicAlbums(): Observable<Album[]> {
     return this.httpClient.get<Album[]>(`${this.baseUrl}/album`);

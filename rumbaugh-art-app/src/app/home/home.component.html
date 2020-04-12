@@ -2,7 +2,7 @@
   <ngb-carousel>
     <ng-template class="carousel" ngbSlide *ngFor="let photo of staredPhotos">
       <div class="pixsum-img-wrapper">
-        <img src="http://{{photoServerUrl}}/uploads/big/{{photo.url}}">
+        <img src="{{photoServerUrl}}/uploads/big/{{photo.url}}">
       </div>
     </ng-template>
   </ngb-carousel>

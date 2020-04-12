@@ -7,12 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GalleryComponent } from './gallery/gallery.component';
 import { AboutComponent } from './about/about.component';
 import { PhotoDialogComponent } from './photo-dialog/photo-dialog.component';
 import { MaterialModule } from './material/material.module';
 import { ContactComponent } from './contact/contact.component';
+import { HttpsInterceptor } from './services/lychee/https-interceptor';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import { ContactComponent } from './contact/contact.component';
     NgbCarouselModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpsInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
