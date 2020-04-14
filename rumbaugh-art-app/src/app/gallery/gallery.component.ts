@@ -18,7 +18,7 @@ export class GalleryComponent implements OnInit {
 
   albumId: string;
   photos: Photo[] = [];
-  photoUrls: string[] = [];
+  // photoUrls: string[] = [];
   photoServerUrl: string = environment.photoServerUrl;
   // Make sure this thresh matches the minmax set in the css grid.
   readonly photoThreshPx: number = 300;
@@ -54,12 +54,10 @@ export class GalleryComponent implements OnInit {
   }
 
   openPhotoDialog(selectedIndex: number) {
-    // Reset and collect all urls.
-    this.photoUrls = [];
-    this.photos.forEach(photo => this.photoUrls.push(photo.url));
+    let photosCopy: Photo[] = [];
 
     let dialogData: PhotoDialogData = {
-      photoUrls: this.photoUrls,
+      photos: Object.assign(photosCopy, this.photos),
       selectedIndex
     };
 

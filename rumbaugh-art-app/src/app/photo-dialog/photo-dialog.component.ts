@@ -2,9 +2,10 @@ import { Component, OnInit, Inject, ViewChild, AfterViewInit } from '@angular/co
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { environment } from 'src/environments/environment';
 import { NgbCarouselConfig, NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
+import { Photo } from '../services/lychee/photo';
 
 export interface PhotoDialogData {
-  photoUrls: string[];
+  photos: Photo[];
   selectedIndex: number;
 }
 
@@ -34,15 +35,15 @@ export class PhotoDialogComponent implements OnInit, AfterViewInit {
 
   private shiftUrlsLeft(spaces: number): void {
     for (let i = 0; i < spaces; i++) {
-      let lastInd = this.data.photoUrls.length - 1;
-      let temp = this.data.photoUrls[lastInd];
-      this.data.photoUrls[lastInd] = this.data.photoUrls[0];
+      let lastInd = this.data.photos.length - 1;
+      let temp = this.data.photos[lastInd];
+      this.data.photos[lastInd] = this.data.photos[0];
 
       for (let j = 0; j < lastInd; j++) {
-        this.data.photoUrls[j] = this.data.photoUrls[j + 1];
+        this.data.photos[j] = this.data.photos[j + 1];
       }
 
-      this.data.photoUrls[lastInd - 1] = temp;
+      this.data.photos[lastInd - 1] = temp;
 
     }
   }

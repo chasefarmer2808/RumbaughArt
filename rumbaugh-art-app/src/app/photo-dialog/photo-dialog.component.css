@@ -20,6 +20,24 @@
     height: 100%;
 }
 
+.carousel-caption {
+    display: none;
+}
+
+
 @media only screen and (min-width: 1024px) {
+    .carousel-caption {
+        display: block;
+        margin-bottom: 4px;
+    }
     
+    .caption {
+        width: auto;
+        color: black;
+        background-color: #f5ecd9;
+        font-family: 'Raleway', sans-serif;
+        font-size: 16px;
+        padding: 8px;
+        border-radius: 5px;
+    }
 }
