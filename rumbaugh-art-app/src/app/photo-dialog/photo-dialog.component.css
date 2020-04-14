@@ -1,7 +1,5 @@
 #photo-dialog-container {
     max-height: 95vh;
-    display: flex;
-    flex-direction: row;
 }
 
 #photo-dialog-container button {
@@ -39,5 +37,14 @@
         font-size: 16px;
         padding: 8px;
         border-radius: 5px;
+    }
+
+    .picsum-img-wrapper {
+        height: 95vh;
+    }
+
+    .picsum-img-wrapper img {
+        object-fit: contain;
+        height: 100%;
     }
 }
