@@ -4,6 +4,7 @@
     grid-auto-rows: 300px;
     grid-auto-flow: dense;
     overflow: hidden;
+    height: 100%;
 }
 
 .thumbnail {
@@ -19,12 +20,38 @@
     transform: scale(1.02);
 }
 
-.thumbnail img {
+#title-overlay-container {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+#gallery-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
+#title-overlay {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+    background-color: #f5ecd9;
+    font-size: 20px;
+    font-family: 'Raleway', sans-serif;
+    padding: 8px;
+}
+
 @media only screen and (min-width: 1024px) {
-    
+    #title-overlay {
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.3s;
+    }
+
+    .thumbnail:hover #title-overlay {
+        visibility: visible;
+        opacity: 1;
+    }
 }
