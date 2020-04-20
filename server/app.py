@@ -13,7 +13,7 @@ def create_app(env_name):
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.init_app(app)
     api = Api(app)
-    CORS(app)
+    CORS(app, resources={r"/api/*": {"origin": "*"}})
     api.add_resource(Photo, '/api/v1/photo/<string:photo_id>')
     api.add_resource(Photos, '/api/v1/photo/')
     api.add_resource(Album, '/api/v1/album/<string:album_id>')
