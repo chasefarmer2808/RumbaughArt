@@ -1,5 +1,6 @@
 <div mat-dialog-content id="photo-dialog-container">
-    <ngb-carousel #carousel>
+    <h2 class="floating-dialog-title">{{data.photos[currPhotoIndex].title}}</h2>
+    <ngb-carousel #carousel (slide)="updatePhotoIndex($event.source)">
         <ng-template class="carousel" ngbSlide *ngFor="let photo of data.photos">
             <div class="picsum-img-wrapper">
                 <img src="{{photoServerUrl}}/uploads/big/{{photo.url}}">

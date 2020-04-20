@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, ViewChild, AfterViewInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { environment } from 'src/environments/environment';
-import { NgbCarouselConfig, NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselConfig, NgbCarousel, NgbSlideEvent } from '@ng-bootstrap/ng-bootstrap';
 import { Photo } from '../services/lychee/photo';
 
 export interface PhotoDialogData {
@@ -19,6 +19,8 @@ export class PhotoDialogComponent implements OnInit, AfterViewInit {
   @ViewChild('carousel') carousel: NgbCarousel;
 
   photoServerUrl: string = environment.photoServerUrl;
+  currPhotoIndex: number = 0;
+  currPhotoTitle: string;
 
   constructor(public dialogRef: MatDialogRef<PhotoDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: PhotoDialogData,
@@ -27,10 +29,29 @@ export class PhotoDialogComponent implements OnInit, AfterViewInit {
       this.shiftUrlsLeft(this.data.selectedIndex);
     }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.currPhotoTitle = this.data.photos[this.data.selectedIndex].title;
+  }
 
   ngAfterViewInit() {
     this.carousel.pause();
+  }
+
+  updatePhotoIndex(slideSource: string) {
+    if (slideSource == 'arrowRight') {
+      this.currPhotoIndex++;
+
+      //Don't overflow.
+      this.currPhotoIndex %= this.data.photos.length; 
+    }
+    else if (slideSource == 'arrowLeft') {
+      this.currPhotoIndex--;
+
+      // Don't underflow.
+      if (this.currPhotoIndex < 0) {
+        this.currPhotoIndex = this.data.photos.length - 1;
+      }
+    }
   }
 
   private shiftUrlsLeft(spaces: number): void {
@@ -47,5 +68,4 @@ export class PhotoDialogComponent implements OnInit, AfterViewInit {
 
     }
   }
-
 }

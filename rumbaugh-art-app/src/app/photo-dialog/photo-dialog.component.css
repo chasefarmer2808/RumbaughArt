@@ -1,5 +1,6 @@
 #photo-dialog-container {
-    max-height: 95vh;
+    max-height: 85vh;
+    text-align: center;
 }
 
 #photo-dialog-container button {
@@ -22,6 +23,14 @@
     display: none;
 }
 
+.floating-dialog-title {
+    color: white;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
 
 @media only screen and (min-width: 1024px) {
     .carousel-caption {
@@ -40,7 +49,7 @@
     }
 
     .picsum-img-wrapper {
-        height: 95vh;
+        height: 85vh;
     }
 
     .picsum-img-wrapper img {
