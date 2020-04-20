@@ -2,7 +2,6 @@
   <div class="thumbnail" *ngFor="let photo of photos; let i = index" (click)=openPhotoDialog(i)>
     <div id="title-overlay-container">
       <img id="gallery-image" class="photo-shadow" src="{{photoServerUrl}}/uploads/big/{{photo.url}}" (load)="refreshGrid($event, i)">
-      <div class="photo-shadow" id="title-overlay">{{photo.title}}</div>
     </div>
   </div>
 </div>
