@@ -26,7 +26,7 @@ When the app is running, you can backup the state of the lychee and mysql databa
 This app uses Certbot to generate, install, and renew certs.  This cert must be renewed once overy 90 days.  There is currently no automation or notification mechanism to handle this expiration.  Follow these steps to renew the cert.
 1. SSH into the production server.
 2. Backup the database by running `./backup_all.sh`.
-3. Stop all services by running `docker-compos down`.
-4. Generate and install a new cert by running `docker-compose up certbot`.  Wait for the certbot service to exit.  The new cert should be installed at this point.
+3. Generate and install a new cert by running `docker-compose up certbot`.  Wait for the certbot service to exit.  The new cert should be installed at this point.  Note that the `reverse_proxy` docker service must be running for the cert challenges to succeed against the prod domain.
+4. Stop all services by running `docker-compos down`.
 5. Rebuild all images by running `docker-compose build`.
 6. Start the web app by running `docker-compose up`.
