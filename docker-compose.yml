@@ -40,6 +40,7 @@ services:
                         - ./dhparam:/etc/ssl/certs
                 depends_on:
                         - web
+                        - stats
                 restart: unless-stopped
         certbot:
                 image: certbot/certbot
