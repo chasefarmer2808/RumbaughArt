@@ -50,7 +50,7 @@ services:
                 depends_on:
                         - reverse_proxy
                 command: certonly --webroot --webroot-path=/var/www/html --email srumbaugh@srumbaugh.com --agree-tos --no-eff-email -d srumbaugh.com -d www.srumbaugh.com
-        umami:
+        stats:
                 image: ghcr.io/mikecao/umami:postgresql-latest
                 ports:
                         - 3000:80
