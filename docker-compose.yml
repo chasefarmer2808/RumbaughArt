@@ -53,6 +53,8 @@ services:
                 command: certonly --webroot --webroot-path=/var/www/html --email srumbaugh@srumbaugh.com --agree-tos --no-eff-email -d srumbaugh.com -d www.srumbaugh.com
         stats:
                 image: ghcr.io/mikecao/umami:postgresql-latest
+                ports:
+                        - 3000:80
                 environment:
                         DATABASE_URL: postgresql://umami:umami@db:5432/umami
                         DATABASE_TYPE: postgresql
