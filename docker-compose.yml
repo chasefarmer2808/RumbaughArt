@@ -56,7 +56,7 @@ services:
                 ports:
                         - 8082:3000
                 environment:
-                        DATABASE_URL: postgresql://umami:umami@db:5432/umami
+                        DATABASE_URL: postgresql://umami:umami@umami-db:5432/umami
                         DATABASE_TYPE: postgresql
                         HASH_SALT: srumbaugh
                 depends_on:
