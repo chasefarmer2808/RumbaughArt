@@ -51,26 +51,6 @@ services:
                 depends_on:
                         - reverse_proxy
                 command: certonly --webroot --webroot-path=/var/www/html --email srumbaugh@srumbaugh.com --agree-tos --no-eff-email -d srumbaugh.com -d www.srumbaugh.com
-        stats:
-                image: ghcr.io/mikecao/umami:postgresql-latest
-                ports:
-                        - 8082:3000
-                environment:
-                        DATABASE_URL: postgresql://umami:umami@umami-db:5432/umami
-                        DATABASE_TYPE: postgresql
-                        HASH_SALT: srumbaugh
-                depends_on:
-                        - umami-db
-        umami-db:
-                image: postgres:12-alpine
-                environment:
-                        POSTGRES_DB: umami
-                        POSTGRES_USER: umami
-                        POSTGRES_PASSWORD: umami
-                volumes:
-                        - ./umami/schema.postgresql.sql:/docker-entrypoint-initdb.d/schema.postgresql.sql:ro
-                        - umami-db-data:/var/lib/postgresql/data
-
 volumes:
         certbot-etc:
         certbot-var:
