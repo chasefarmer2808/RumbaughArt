@@ -17,7 +17,7 @@ This is a portfolio website for artist Suzanne Rumbaugh.  Check out the live sit
 When the app is running, you can backup the state of the lychee and mysql database by running the backup_all.sh command.  This will overwride the backup.sql and backup.tar files.  **Make sure to run this backup before running `docker-compose down` on the production server.
 
 ## Build and deploy
-1. Build the Angular app with `docker build -t chasefarmer94/rumbuagh-art-app:prod --build-arg configuration=prod .`
+1. Build the Angular app with `docker build -t chasefarmer94/rumbaugh-art-app:prod --build-arg configuration=prod .`
 2. Push the web image with `docker push chasefarmer94/rumbaugh-art-app:prod`.
 3. Build the Flask web server, mysql database, lychee app, and pull latest web with `docker-compose build`.
 4. Run the entire web app with `docker-compose up`.
