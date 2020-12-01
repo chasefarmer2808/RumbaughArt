@@ -3,12 +3,12 @@
 }
 
 #bio-container {
+    background-color: #f5ecd9;
 }
 
 .bio-text {
     font-size: 26px;
     line-height: normal;
-    margin-top: 8px;
 }
 
 #bio-photo-container {
@@ -29,9 +29,12 @@
     #bio-container {
     }
 
+    .bio-content {
+        display: flex;
+    }
+
     .bio-text {
         font-size: 26px;
-        margin-right: 16px;
         line-height: normal;
     }
 
