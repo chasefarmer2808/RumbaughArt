@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HAMMER_GESTURE_CONFIG, HammerModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
@@ -31,10 +31,11 @@ import { HttpsInterceptor } from './services/lychee/https-interceptor';
     HttpClientModule,
     BrowserAnimationsModule,
     NgbCarouselModule,
-    MaterialModule
+    MaterialModule,
+    HammerModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: HttpsInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: HttpsInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })
