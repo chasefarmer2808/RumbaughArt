@@ -18,8 +18,8 @@ class Photo(Resource):
 
 class Photos(Resource):
     def get(self):
-        photos = []
         args = parser.parse_args()
+        photos = []
 
         if args['album_id'] is not None:
             photos = PhotoModel.get_all_by_album_id(args['album_id'])

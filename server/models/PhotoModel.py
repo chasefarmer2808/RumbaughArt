@@ -3,16 +3,17 @@ from . import db
 
 
 class PhotoModel(db.Model):
-    __tablename__ = 'lychee_photos'
+    __tablename__ = 'photos'
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
-    album = db.Column(db.Integer, nullable=False)
+    album_id = db.Column(db.Integer, nullable=False)
     url = db.Column(db.String(100), nullable=False)
     thumbUrl = db.Column(db.String(37), nullable=False)
     width = db.Column(db.Integer, nullable=False)
     height = db.Column(db.Integer, nullable=False)
     star = db.Column(db.Boolean, nullable=False)
+    tags = db.Column(db.String(100))
 
     def __init__(self, data):
         self.id = data.get('id')
@@ -37,6 +38,10 @@ class PhotoModel(db.Model):
         return PhotoModel.query.filter_by(album=album_id)
 
     @staticmethod
+    def get_all_by_tag(tags):
+        return PhotoModel.query.filter_by(tags=tags)
+
+    @staticmethod
     def get_all_stared():
         return PhotoModel.query.filter_by(star=1)
 
@@ -44,9 +49,10 @@ class PhotoModel(db.Model):
 class PhotoSchema(Schema):
     id = fields.Int(dump_only=True)
     title = fields.Str(required=True)
-    album = fields.Int(required=True)
+    album_id = fields.Int(required=True)
     url = fields.Str(required=True)
     thumbUrl = fields.Str(required=True)
     width = fields.Int(required=True)
     height = fields.Int(required=True)
     star = fields.Int(required=True)
+    tags = fields.Str()

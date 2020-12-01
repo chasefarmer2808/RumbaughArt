@@ -8,7 +8,7 @@ load_dotenv(dotenv_path=env_path)
 
 class Development(object):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:{}@localhost/lychee'.format(os.getenv('MYSQL_ROOT_PASSWORD'))
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:{}@localhost/mysql'.format(os.getenv('MYSQL_ROOT_PASSWORD'))
     MYSQL_ROOT_PASSWORD = os.getenv('MYSQL_ROOT_PASSWORD')
 
 
@@ -21,7 +21,7 @@ class Testing(object):
 
 class Production(object):
     DEBUG = False
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:{}@{}/lychee'.format(os.getenv('MYSQL_ROOT_PASSWORD'), os.getenv('DATABASE_HOSTNAME'))
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:{}@{}/mysql'.format(os.getenv('MYSQL_ROOT_PASSWORD'), os.getenv('DATABASE_HOSTNAME'))
     MYSQL_ROOT_PASSWORD = os.getenv('MYSQL_ROOT_PASSWORD')
 
 
