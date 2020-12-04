@@ -42,7 +42,6 @@ export class NavbarComponent implements OnInit {
       if (event instanceof NavigationStart) {
         this.currentUrl = event.url.slice(1);
         this.navActive = false;
-        // this.galleriesActive = false;
       }
     })
   }

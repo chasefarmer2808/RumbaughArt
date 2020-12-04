@@ -31,11 +31,16 @@ export class LycheeService {
 
   getPhotosByAlbum(albumId: string): Observable<Photo[]> {
     let params = new HttpParams().set('album_id', albumId);
-    return this.httpClient.get<Photo[]>(`${this.baseUrl}/photo`, {params: params});
+    return this.httpClient.get<Photo[]>(`${this.baseUrl}/photo`, { params: params });
   }
 
   getStaredPhotos(): Observable<Photo[]> {
     let params = new HttpParams().set('star', '1');
-    return this.httpClient.get<Photo[]>(`${this.baseUrl}/photo`, {params: params});
+    return this.httpClient.get<Photo[]>(`${this.baseUrl}/photo`, { params: params });
+  }
+
+  getPhotosByTag(tag: string): Observable<Photo[]> {
+    let params = new HttpParams().set('tags', tag);
+    return this.httpClient.get<Photo[]>(`${this.baseUrl}/photo/tagged`, { params: params });
   }
 }

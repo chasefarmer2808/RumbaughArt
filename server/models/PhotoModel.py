@@ -7,6 +7,7 @@ class PhotoModel(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.String)
     album_id = db.Column(db.Integer, nullable=False)
     url = db.Column(db.String(100), nullable=False)
     thumbUrl = db.Column(db.String(37), nullable=False)
@@ -49,6 +50,7 @@ class PhotoModel(db.Model):
 class PhotoSchema(Schema):
     id = fields.Int(dump_only=True)
     title = fields.Str(required=True)
+    description = fields.Str()
     album_id = fields.Int(required=True)
     url = fields.Str(required=True)
     thumbUrl = fields.Str(required=True)

@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   serverUrl: 'localhost',
-  serverPort: '8081',
+  serverPort: '80',
   serverDirectory: '',
   photoServerUrl: 'http://localhost:8080'
 };

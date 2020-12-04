@@ -14,6 +14,7 @@ import { PhotoDialogComponent } from './photo-dialog/photo-dialog.component';
 import { MaterialModule } from './material/material.module';
 import { ContactComponent } from './contact/contact.component';
 import { HttpsInterceptor } from './services/lychee/https-interceptor';
+import { PaintingsGalleryComponent } from './paintings-gallery/paintings-gallery.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HttpsInterceptor } from './services/lychee/https-interceptor';
     GalleryComponent,
     AboutComponent,
     PhotoDialogComponent,
-    ContactComponent
+    ContactComponent,
+    PaintingsGalleryComponent
   ],
   imports: [
     BrowserModule,

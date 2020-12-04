@@ -18,12 +18,11 @@ export class GalleryComponent implements OnInit {
 
   albumId: string;
   photos: Photo[] = [];
-  // photoUrls: string[] = [];
   photoServerUrl: string = environment.photoServerUrl;
   // Make sure this thresh matches the minmax set in the css grid.
   readonly photoThreshPx: number = 550;
 
-  constructor(private route: ActivatedRoute, 
+  constructor(private route: ActivatedRoute,
     private lycheeService: LycheeService,
     private renderer: Renderer2,
     public photoDialog: MatDialog) { }
@@ -39,16 +38,16 @@ export class GalleryComponent implements OnInit {
     });
   }
 
-  refreshGrid(event, photoIndex:number) {
+  refreshGrid(event, photoIndex: number) {
     let imgParentElement = event.target.parentElement.parentElement;
-    let photo:Photo = this.photos[photoIndex];
+    let photo: Photo = this.photos[photoIndex];
 
     let dimentionDiff: number = photo.width - photo.height;
 
     // Make photo wider or taller in the grid based on its actual dimentions.
     if (dimentionDiff > this.photoThreshPx) {
       this.renderer.setStyle(imgParentElement, 'grid-column', 'span 2');
-    } 
+    }
     else if (dimentionDiff < (this.photoThreshPx * -1)) {
       this.renderer.setStyle(imgParentElement, 'grid-row', 'span 2');
     }

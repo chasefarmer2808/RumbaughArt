@@ -1,0 +1,6 @@
+<section class="paintings-container">
+    <div class="painting-container" *ngFor="let photo of photos">
+        <img class="painting photo-shadow" src="{{photoServerUrl}}/uploads/small/{{photo.url}}">
+        <p class="painting-description">{{photo.description}}</p>
+    </div>
+</section>

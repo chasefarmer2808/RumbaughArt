@@ -4,7 +4,8 @@
       <div id="site-title-header">Fine Art Photographic Prints</div>
       <div id="artist-name">by <span>Suzanne Rumbaugh</span></div>
     </div>
-    <button id="nav-menu-button" class="hamburger hamburger--slider" type="button" (click)="toggleNav()" [ngClass]="{'is-active': navActive}">
+    <button id="nav-menu-button" class="hamburger hamburger--slider" type="button" (click)="toggleNav()"
+      [ngClass]="{'is-active': navActive}">
       <span class="hamburger-box">
         <span class="hamburger-inner"></span>
       </span>
@@ -13,25 +14,35 @@
   <!-- Desktop -->
   <div id="nav-links-container">
     <a class="nav-link" [ngClass]="{'nav-link-active': currentUrl == ''}" [routerLink]="['/']">Home</a>
-    <div id="gallery-links-container" [ngClass]="{'nav-link-active': galleriesActive || currentUrl.includes('gallery')}" (mouseover)="galleriesActive = true" (mouseleave)="galleriesActive = false">
-      <span class="nav-link">Galleries</span>
+    <div id="gallery-links-container" [ngClass]="{'nav-link-active': galleriesActive || currentUrl.includes('gallery')}"
+      (mouseover)="galleriesActive = true" (mouseleave)="galleriesActive = false">
+      <span class="nav-link">Photo Galleries</span>
       <div id="gallery-links" [@slideDown]="galleriesActive ? 'down' : 'up'">
-        <a *ngFor="let gallery of galleries" id="gallery-link" [routerLink]="['/gallery', gallery.id]">{{gallery.title}}</a>
+        <a *ngFor="let gallery of galleries" id="gallery-link"
+          [routerLink]="['/gallery', gallery.id]">{{gallery.title}}</a>
       </div>
     </div>
+    <a class="nav-link" [ngClass]="{'nav-link-active': currentUrl == 'paintings'}"
+      [routerLink]="['/paintings']">Paintings</a>
     <a class="nav-link" [ngClass]="{'nav-link-active': currentUrl == 'about'}" [routerLink]="['/about']">About</a>
-    <a class="nav-link" [ngClass]="{'nav-link-active': currentUrl == 'contact'}" [routerLink]="['/contact']">Pricing/Contact</a>
+    <a class="nav-link" [ngClass]="{'nav-link-active': currentUrl == 'contact'}"
+      [routerLink]="['/contact']">Pricing/Contact</a>
   </div>
   <!-- Mobile -->
   <div id="nav-links-slider" [@slideDown]="navActive ? 'down' : 'up'">
     <a class="nav-link" [ngClass]="{'nav-link-active': currentUrl == 'home'}" [routerLink]="['/home']">Home</a>
-    <div id="gallery-links-container" [ngClass]="{'nav-link-active': galleriesActive || currentUrl.includes('gallery')}" (click)="toggleGalleries()">
-      <span class="nav-link">Galleries</span>
+    <div id="gallery-links-container" [ngClass]="{'nav-link-active': galleriesActive || currentUrl.includes('gallery')}"
+      (click)="toggleGalleries()">
+      <span class="nav-link">Photo Galleries</span>
       <div id="gallery-links" [@slideDown]="galleriesActive ? 'down' : 'up'">
-        <a *ngFor="let gallery of galleries" id="gallery-link" [routerLink]="['/gallery', gallery.id]">{{gallery.title}}</a>
+        <a *ngFor="let gallery of galleries" id="gallery-link"
+          [routerLink]="['/gallery', gallery.id]">{{gallery.title}}</a>
       </div>
     </div>
+    <a class="nav-link" [ngClass]="{'nav-link-active': currentUrl == 'paintings'}"
+      [routerLink]="['/paintings']">Paintings</a>
     <a class="nav-link" [ngClass]="{'nav-link-active': currentUrl == 'about'}" [routerLink]="['/about']">About</a>
-    <a class="nav-link" [ngClass]="{'nav-link-active': currentUrl == 'contact'}" [routerLink]="['/contact']">Pricing/Contact</a>
+    <a class="nav-link" [ngClass]="{'nav-link-active': currentUrl == 'contact'}"
+      [routerLink]="['/contact']">Pricing/Contact</a>
   </div>
 </div>

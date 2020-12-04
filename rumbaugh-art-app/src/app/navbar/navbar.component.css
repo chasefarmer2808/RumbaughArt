@@ -99,6 +99,7 @@
 
     #nav-links-container {
         display: flex;
+        align-items: center;
         flex-direction: row;
         margin-right: 16px;
     }
