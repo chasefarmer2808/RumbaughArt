@@ -8,3 +8,6 @@
 *.ppk
 **/*.tar
 db/backups/backup.sql
+lychee/conf
+lychee/sym
+lychee/uploads
