@@ -57,7 +57,7 @@ services:
                         - web-root:/var/www/html
                 depends_on:
                         - reverse_proxy
-                command: certonly --webroot --webroot-path=/var/www/html --email srumbaugh@srumbaugh.com --agree-tos --no-eff-email -d srumbaugh.com -d www.srumbaugh.com
+                command: certonly --webroot --webroot-path=/var/www/html --email suesteve@sbcglobal.net --agree-tos --no-eff-email -d srumbaugh.com -d www.srumbaugh.com
 volumes:
         mysql:
         certbot-etc:
