@@ -13,19 +13,26 @@ services:
                         - .env
                 restart: unless-stopped
         lychee:
-                build: ./lychee
+                image: lycheeorg/lychee
                 ports:
                         - 8080:80
                 links:
                         - "mysql:mysql"
+                volumes:
+                        - ./lychee/conf:/conf
+                        - ./lychee/uploads:/uploads
+                        - ./lychee/sym:/sym
                 restart: unless-stopped
         mysql:
-                build: ./db
+                image: mysql
                 command: --default-authentication-plugin=mysql_native_password
                 ports:
                         - 3306:3306
                 env_file:
                         - .env
+                volumes:
+                        - ./db/init:/docker-entrypoint-initdb.d/
+                        - ./db/backup:/backup
                 restart: unless-stopped
         reverse_proxy:
                 image: nginx:mainline-alpine
