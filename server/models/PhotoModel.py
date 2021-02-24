@@ -7,7 +7,7 @@ class PhotoModel(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
-    album = db.Column(db.Integer, nullable=False)
+    album_id = db.Column(db.Integer, nullable=False)
     url = db.Column(db.String(100), nullable=False)
     thumbUrl = db.Column(db.String(37), nullable=False)
     width = db.Column(db.Integer, nullable=False)
@@ -17,7 +17,7 @@ class PhotoModel(db.Model):
     def __init__(self, data):
         self.id = data.get('id')
         self.title = data.get('title')
-        self.album = data.get('album')
+        self.album = data.get('album_id')
         self.url = data.get('url')
         self.thumbUrl = data.get('thumbUrl')
         self.width = data.get('width')
@@ -34,7 +34,7 @@ class PhotoModel(db.Model):
 
     @staticmethod
     def get_all_by_album_id(album_id):
-        return PhotoModel.query.filter_by(album=album_id)
+        return PhotoModel.query.filter_by(album_id=album_id)
 
     @staticmethod
     def get_all_stared():
@@ -44,7 +44,7 @@ class PhotoModel(db.Model):
 class PhotoSchema(Schema):
     id = fields.Int(dump_only=True)
     title = fields.Str(required=True)
-    album = fields.Int(required=True)
+    album_id = fields.Int(required=True)
     url = fields.Str(required=True)
     thumbUrl = fields.Str(required=True)
     width = fields.Int(required=True)
