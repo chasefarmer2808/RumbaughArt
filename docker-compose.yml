@@ -17,15 +17,17 @@ services:
                 ports:
                         - 8080:80
                 links:
-                        - "mysql:mysql"
+                        - "lychee_db:lychee_db"
+                env_file:
+                        - .env
                 volumes:
                         - ./lychee/conf:/conf
                         - ./lychee/uploads:/uploads
                         - ./lychee/sym:/sym
                 restart: unless-stopped
-        mysql:
-                image: mysql
-                command: --default-authentication-plugin=mysql_native_password
+        lychee_db:
+                image: mariadb:10
+                # command: --default-authentication-plugin=mysql_native_password
                 ports:
                         - 3306:3306
                 env_file:
@@ -33,6 +35,7 @@ services:
                 volumes:
                         - ./db/init:/docker-entrypoint-initdb.d/
                         - ./db/backup:/backup
+                        - mysql:/var/lib/mysql
                 restart: unless-stopped
         reverse_proxy:
                 image: nginx:mainline-alpine
@@ -58,6 +61,7 @@ services:
                         - reverse_proxy
                 command: certonly --webroot --webroot-path=/var/www/html --email suesteve@sbcglobal.net --agree-tos --no-eff-email -d srumbaugh.com -d www.srumbaugh.com
 volumes:
+        mysql:
         certbot-etc:
         certbot-var:
         web-root:

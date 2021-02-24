@@ -3,7 +3,7 @@ from . import db
 
 
 class AlbumModel(db.Model):
-    __tablename__ = 'lychee_albums'
+    __tablename__ = 'albums'
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)

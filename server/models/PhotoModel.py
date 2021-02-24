@@ -3,7 +3,7 @@ from . import db
 
 
 class PhotoModel(db.Model):
-    __tablename__ = 'lychee_photos'
+    __tablename__ = 'photos'
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
