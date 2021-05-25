@@ -1,0 +1,1 @@
+certbot --nginx --email suesteve@sbcglobal.net --agree-tos --no-eff-email -d srumbaugh.com -d www.srumbaugh.com
