@@ -38,7 +38,7 @@ services:
                         - mysql:/var/lib/mysql
                 restart: unless-stopped
         reverse_proxy:
-                image: nginx:mainline-alpine
+                build: ./reverse_proxy
                 ports:
                         - 443:443
                         - 80:80
