@@ -24,6 +24,14 @@ When the app is running, you can backup the state of the lychee and mysql databa
 
 ## Renewing Let's Encrypt Certs
 This app uses Certbot to generate, install, and renew certs.  This cert must be renewed once overy 90 days.  There is currently no automation or notification mechanism to handle this expiration.  Follow these steps to renew the cert.
+
+### New process:
+1. SSH into the production server.
+2. Exec into the `reverse_proxy` docker container.
+3. Run the command in the `reverse_proxy/install_cert.sh` directory.
+4. Restart the container.
+
+### Old process:
 1. SSH into the production server.
 2. Backup the database by running `./backup_all.sh`.
 3. Generate and install a new cert by running `docker-compose up certbot`.  Wait for the certbot service to exit.  The new cert should be installed at this point.  Note that the `reverse_proxy` docker service must be running for the cert challenges to succeed against the prod domain.
