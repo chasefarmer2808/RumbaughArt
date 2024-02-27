@@ -23,7 +23,7 @@ class Photos(Resource):
 
         if args['album_id'] is not None:
             photos = PhotoModel.get_all_by_album_id(args['album_id'])
-        elif args['star'] is not None and args['star'] is '1':
+        elif args['star'] is not None and args['star'] == '1':
             photos = PhotoModel.get_all_stared()
         else:
             photos = PhotoModel.get_all()
